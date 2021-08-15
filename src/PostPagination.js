@@ -37,18 +37,17 @@ function PostPagination() {
   const [posts, setPost] = useState([]);
   const [page, setPage] = useState(1);
 
-  const getData = async () => {
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/posts?_page=${page}`
-    );
-    setPost(response.data);
-  };
-
   const handleChange = (event, value) => {
     setPage(value);
   };
 
   useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts?_page=${page}`
+      );
+      setPost(response.data);
+    };
     getData();
   }, [page]);
   return (

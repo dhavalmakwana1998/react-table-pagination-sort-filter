@@ -1,7 +1,9 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import TablePaginationCom from "./TablePagination";
 import PostPagination from "./PostPagination";
+import BsTable from "./BsTable";
 
 function App() {
   return (
@@ -25,6 +27,11 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item ">
+                <Link to="bs-table" className="nav-link">
+                  BS Table
+                </Link>
+              </li>
+              <li className="nav-item ">
                 <Link to="/" className="nav-link">
                   MUI Table Pagination
                 </Link>
@@ -41,7 +48,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={TablePaginationCom} />
           <Route exact path="/post-pagination" component={PostPagination} />
-          <Route component={TablePaginationCom} />
+          <Route exact path="/bg-table" component={BsTable} />
+          <Route component={BsTable} />
         </Switch>
       </BrowserRouter>
     </div>
